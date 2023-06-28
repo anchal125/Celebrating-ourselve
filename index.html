@@ -11,6 +11,7 @@
     body {
   background-image: url("3342512.webp");  
   background-size: cover;
+  
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -45,13 +46,6 @@
 
 #home.active {
   color: rgb(214, 145, 216);   
-}
-
-h1 {
-  font-size: 4vw; /* converted from 4rem */
-  text-align: center;
-  margin: 5vw; /* converted from 20px */
-  color: rgb(50, 4, 36);
 }
 
 .overlay {
@@ -94,8 +88,8 @@ h1 {
 
 p, h2 {
     text-align: center;
+    background-color: rgba(244, 220, 235, 0.7);
   padding: 5vw; /* converted from 20px */
-  background-color: rgba(244, 220, 235, 0.7);
   font-size: 2.1vw; /* converted from 18px */
 }
 
@@ -106,7 +100,18 @@ p, h2 {
 
 
     
+img {
+  display: block;
+  width: 100%;
+  height:80vh;
+}
 
+.chart-option {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  /* other styles */
+}
  
   </style>
 </head>
@@ -126,7 +131,7 @@ p, h2 {
    
      <a href="index.html" id="home" class="active">Home</a>  
   </div>
-  <h1>Celebrating Ourselves</h1>
+  <img src="love.avif" alt="your image description">
   <h2>You are special. You are worthy. You have a kind of magic that can never be imitated. 
   <br>You are a blessing. You are spectacular. You are most beautiful when you are yourself.<br>
 
@@ -235,15 +240,70 @@ p, h2 {
 
 closeBtn.addEventListener('click', () => {
   document.querySelector('.overlay').style.display = 'none';
+  
 });
-    
+
+
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+
+const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.post('/submit-form', (req, res) => {
+  const { query, email } = req.body;
+
+  // Send the query to your email using Nodemailer
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'your-email@gmail.com',
+      pass: 'your-email-password'
+    }
+  });
+
+  const mailOptions = {
+    from: 'anchalsehgal1oct@gmail.com',
+    to: 'your-email@gmail.com',
+    subject: 'New query received',
+    text: `Query: ${query}\nEmail: ${email}`
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.sendStatus(500);
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.sendStatus(200);
+    }
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
 
     
 
 
 </script>
 
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/649bf039cc26a871b0251d01/1h40i4oft';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
 
 
 </body>
