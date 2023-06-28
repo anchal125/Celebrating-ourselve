@@ -280,15 +280,23 @@ background-color: rgb(244, 220, 235,0.7);
     
 const closeBtn = document.querySelector('.close');
 
-if (!localStorage.popupShown) {  
+if (!sessionStorage.popupShown) {  
+  // Show popup only if it hasn't been shown in this session  
   document.querySelector('.overlay').style.display = 'block';  
-  localStorage.popupShown = true;
+  sessionStorage.popupShown = true;  
 }
 
 closeBtn.addEventListener('click', function() {  
   document.querySelector('.overlay').style.display = 'none';
-});   
-</script>
+});
+
+window.addEventListener('load', function() {
+ if (sessionStorage.popupShown) {
+   document.querySelector('.overlay').style.display = 'none'; 
+ }
+});
+
+
 
 
 
