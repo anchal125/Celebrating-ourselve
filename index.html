@@ -7,42 +7,31 @@
   <title>Celebrating Ourselves</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
-    body {
-      background-image: url("3342512.webp");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
-      margin: 0;
-      padding: 0;
-      font-size: 16px;
-      
-    }
-
-  
-
-    .container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-      margin:0;
-      width: 100%;
-      height: 50px;
-      
-
-      background-color: #333;
-    }
-
-   
     
-
+    body {
+  background-image: url("3342512.webp");  
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   
+  margin: 0;
+  padding: 0;
+  font-size: 2vw; /* converted from 16px */
+}
 
-.container a {  
+.container {
 
- 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 5vh; /* converted from 50px */
+  background-color: #333;
+}
+
+.container a {
   color: #f2ecec;      
-  margin: 0 10px;
+  margin: 0 1.67vw; /* converted from 10px */
   text-decoration: none;   
 }
 
@@ -50,107 +39,72 @@
   color: #ae4195;    
 }
 
-#home {    
+#home {
   color: rgb(207, 211, 207);    
 }
 
-#home.active {   
+#home.active {
   color: rgb(214, 145, 216);   
 }
 
+h1 {
+  font-size: 4vw; /* converted from 4rem */
+  text-align: center;
+  margin: 5vw; /* converted from 20px */
+  color: rgb(50, 4, 36);
+}
 
-    h1 {
-      font-size: 4rem;
-      text-align: center;
-      margin: 20px;
-      color: rgb(50, 4, 36);
-    }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
 
-   
-   
+.popup {
+  display: flex; /* Added */
+  justify-content: center; /* Centers items horizontally */ 
+  position: relative;
+  background-color: #fff;
+  padding: 0;
+  flex-direction: column;
+}
 
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
+.close {
+  position: absolute;
+  top: 0.9vw; /* converted from 10px */
+  right: 1.2vw; /* converted from 10px */
+  font-size: 1.67vw; /* converted from 20px */
+  color: #333;
+  cursor: pointer;
+}
 
-    .popup {
-      position: relative;
-      background-color: #fff;
-      padding: 0;
-      width: 80%;
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+.popup img {
+  
+  height: auto;
+  width: 28vw;
+  height:29vh;
+}
 
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      color: #333;
-      cursor: pointer;
-    }
-
-    .popup img {
-      max-width: 100%;
-      height: auto;
-      
-    }
-  p{
-    font-size: 18px;
-  }
-    
-
-    
- 
-
-p,h2{
-margin: 0 auto;
-text-align: center;
-padding: 20px;
-background-color: rgb(244, 220, 235,0.7);
-
-
+p, h2 {
+    text-align: center;
+  padding: 5vw; /* converted from 20px */
+  background-color: rgba(244, 220, 235, 0.7);
+  font-size: 2.1vw; /* converted from 18px */
 }
 
 .hr {
-  height: 1px;
+  height: 0.067vw; /* converted from 1px */
   background: black;
-}
+}    
 
-@media screen and (max-width: 768px) {
-  
-  
-  h2, p { 
-    
-    
-    
-    font-size: 1rem;
-  }
-  
-  
-  
-   
-    
-  h1{
-      font-size: 2rem;
-      text-align: center; 
-      
-  }
- 
-    
-}
+
     
 
  
@@ -277,28 +231,17 @@ background-color: rgb(244, 220, 235,0.7);
     
     </p>
   <script>
-    
-const closeBtn = document.querySelector('.close');
+    const closeBtn = document.querySelector('.close');
 
-if (!sessionStorage.popupShown) {  
-  // Show popup only if it hasn't been shown in this session  
-  document.querySelector('.overlay').style.display = 'block';  
-  sessionStorage.popupShown = true;  
-}
-
-closeBtn.addEventListener('click', function() {  
+closeBtn.addEventListener('click', () => {
   document.querySelector('.overlay').style.display = 'none';
-  
-  // SetpopupShown to true when closing popup
-  sessionStorage.popupShown = true;
 });
+    
 
-window.addEventListener('load', function() {
- if (sessionStorage.popupShown) {
-   document.querySelector('.overlay').style.display = 'none'; 
- }
-});
+    
 
+
+</script>
 
 
 
