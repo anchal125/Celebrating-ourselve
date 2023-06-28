@@ -244,48 +244,6 @@ closeBtn.addEventListener('click', () => {
 });
 
 
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
-
-const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.post('/submit-form', (req, res) => {
-  const { query, email } = req.body;
-
-  // Send the query to your email using Nodemailer
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'your-email@gmail.com',
-      pass: 'your-email-password'
-    }
-  });
-
-  const mailOptions = {
-    from: 'anchalsehgal1oct@gmail.com',
-    to: 'your-email@gmail.com',
-    subject: 'New query received',
-    text: `Query: ${query}\nEmail: ${email}`
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      res.sendStatus(500);
-    } else {
-      console.log('Email sent: ' + info.response);
-      res.sendStatus(200);
-    }
-  });
-});
-
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
-});
-
     
 
 
