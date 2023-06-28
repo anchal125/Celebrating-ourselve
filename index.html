@@ -288,6 +288,9 @@ if (!sessionStorage.popupShown) {
 
 closeBtn.addEventListener('click', function() {  
   document.querySelector('.overlay').style.display = 'none';
+  
+  // SetpopupShown to true when closing popup
+  sessionStorage.popupShown = true;
 });
 
 window.addEventListener('load', function() {
@@ -295,7 +298,6 @@ window.addEventListener('load', function() {
    document.querySelector('.overlay').style.display = 'none'; 
  }
 });
-
 
 
 
