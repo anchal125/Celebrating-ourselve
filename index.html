@@ -18,7 +18,7 @@
   
   margin: 0;
   padding: 0;
-  font-size: 2.5vw; /* converted from 16px */
+  font-size: 3vh; /* converted from 16px */
 }
 
 .container {
@@ -40,6 +40,32 @@
   color: #ae4195;    
 }
 
+@media (max-width: 768px) {
+  /* Styles for screens with a maximum width of 768px go here */
+  .container a {
+  font-size:5.3vw;
+}
+p,h2{
+  font-size: 2vh!important;
+}
+.popup img {
+  width: 29vh!important;
+  height:39vw!important;
+}
+
+.close {
+  
+  font-size: 5vw!important;/* converted from 20px */
+  
+}
+
+video {
+    
+    height: 30vh!important; /* Change this to your desired height */
+    
+  }
+
+}
 #home {
   color: rgb(207, 211, 207);    
 }
@@ -81,9 +107,8 @@
 
 .popup img {
   
-  height: auto;
-  width: 34vw;
-  height:27vh;
+  width: 27vw;
+  height:29vh;
 }
 
 p, h2 {
@@ -106,12 +131,15 @@ img {
   height:80vh;
 }
 
-.chart-option {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  /* other styles */
-}
+video {
+    
+    width: 32%;
+    height: 91vh; /* Change this to your desired height */
+    object-fit: cover; /* Prevents black bars from appearing around the video */
+    margin: 0 33vw;
+    background-color: rgba(244, 220, 235, 0.7);
+  }
+
  
   </style>
 </head>
@@ -171,70 +199,13 @@ img {
     ― Maya Angelou
     <br>
     <br>
-    “Follow your heart, listen to your inner voice, stop caring about what others think.”
-    <br>
-    ― Roy T. Bennett
-    <br>
-    <br>
-    “Follow your inner moonlight; don't hide the madness.”
-    <br>
-    ― Allen Ginsberg
-    <br>
-    <br>
-    “A girl should be two things: who and what she wants.”
-    <br>
-    ― Coco Chanel
-    <br>
-    <br>
-    “Don't compromise yourself - you're all you have.”
-    <br>
-    ― John Grisham
-    <br>
-    <br>
-    “To shine your brightest light is to be who you truly are.”
-    <br>
-    ― Roy T. Bennett
-    
-    <br><br>
-    “When you are content to be simply yourself and don't compare or compete, everyone will respect you.”
-    <br>
-    ― Lao Tzu
-    <br>
-    <br>
-    “Never be bullied into silence. Never allow yourself to be made a victim. Accept no one's definition of your life, but define yourself.”
-    <br>
-    ― Harvey Fierstein
-    <br>
-    <br>
-    
-    “Let yourself be drawn by the stronger pull of that which you truly love.”
-    <br>
-    ― Rumi
-
-    <br><br>
-    “Don't you ever let a soul in the world tell you that you can't be exactly who you are.”
-    <br>
-    ― Lady Gaga
-    
-    <br>
-    <br>
-    “You don't need to be like her. You're already everything.”
-    <br>
-    ― Mikki Daughtry
-    
-    <br>
-    <br>
-    “Stay true to yourself. An original is worth more than a copy.”
-    <br>
-    ― Suzy Kassem
-    
-    <br>
-    <br>
-    “I looked for company and I found myself.”
-    <br>
-    ― Pushpa Rana
-    
-    </p>
+    <span style="color: rgb(27, 1, 15); font-weight: bold;font-size:xx-large;">Whatever happened, happened for the good. Whatever is happening, is happening for the good. Whatever will happen, will also happen for the good.<br>
+      "Lets listen the words of Shri Krishna."</span>
+  </p>
+    <video controls autoplay>
+      <source src="हमेशा-उम्मीद-रखिए-_-Shree-krishna-status-_-Bhagwat-geeta-saar-_-Bhagwat-geeta-_-Geeta-Gyan720P_HD.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   <script>
     const closeBtn = document.querySelector('.close');
 
@@ -242,6 +213,9 @@ closeBtn.addEventListener('click', () => {
   document.querySelector('.overlay').style.display = 'none';
   
 });
+
+
+
 
 
     
