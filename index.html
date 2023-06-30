@@ -283,11 +283,20 @@ content: "You're not having a good day? Let's talk."
       <img src="play-button.png" alt="Play">
     </button>
   <script>
-    const closeBtn = document.querySelector('.close');
+    $(document).ready(function() {
+var seenPopup = getCookie('seenPopup');
 
-closeBtn.addEventListener('click', () => {
-  document.querySelector('.overlay').style.display = 'none';  
-  setCookie('seenPopup', 'true', 1);
+if (seenPopup === null) {
+$('.overlay').show();  
+  
+const closeBtn = document.querySelector('.close');
+  
+closeBtn.addEventListener('click', () => {  
+  document.querySelector('.overlay').style.display = 'none';
+}); 
+  
+setCookie('seenPopup', 'true', 1);  
+}
 });
 
 function setCookie(name, value, days) {
@@ -314,14 +323,7 @@ function getCookie(name) {
   }
   return null;    
 }
-$(document).ready(function() {
-  var seenPopup = getCookie('seenPopup');
-  
-  if (seenPopup === null) {  
-    $('.overlay').show();
-    setCookie('seenPopup', 'true', 1);  
-  }   
-});  
+
 
 
 var myVideo = document.getElementsByTagName('video')[0];
