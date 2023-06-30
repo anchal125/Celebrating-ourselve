@@ -288,12 +288,12 @@ var seenPopup = getCookie('seenPopup');
 
 if (seenPopup === null) {
 $('.overlay').show();  
-  
+
 const closeBtn = document.querySelector('.close');
-  
+
 closeBtn.addEventListener('click', () => {  
-  document.querySelector('.overlay').style.display = 'none';
-}); 
+  $('.overlay').hide();    
+});
   
 setCookie('seenPopup', 'true', 1);  
 }
