@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Celebrating Ourselves</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -41,21 +42,33 @@
 }
 
 @media (max-width: 768px) {
+
+  #playButton{
+  margin:0 44vw!important;
+  width: 10%!important;
+  height: 5%!important;
+ 
+}
+
+#playButton img{
+  width: 55%!important;
+  height: 8%!important;
+}
   /* Styles for screens with a maximum width of 768px go here */
   .container a {
-  font-size:5.3vw;
+  font-size:4.3vw;
 }
 p,h2{
   font-size: 2vh!important;
 }
 .popup img {
   width: 29vh!important;
-  height:39vw!important;
+  height:49vw!important;
 }
 
 .close {
   
-  font-size: 5vw!important;/* converted from 20px */
+  font-size: 6vw!important;/* converted from 20px */
   
 }
 
@@ -65,7 +78,16 @@ video {
     
   }
 
+  img {
+
+  height:80vw!important;
 }
+.message{
+  display:none;
+}
+}
+
+
 #home {
   color: rgb(207, 211, 207);    
 }
@@ -108,7 +130,7 @@ video {
 .popup img {
   
   width: 27vw;
-  height:29vh;
+  height:32vh;
 }
 
 p, h2 {
@@ -140,12 +162,62 @@ video {
     background-color: rgba(244, 220, 235, 0.7);
   }
 
+  .message {
+
+position: fixed;
+bottom: 8.9%;
+right: 3%;
+width: 15%;
+text-align: center;
+padding: 1%;
+background-color: rgb(95, 159, 103);
+border: 1px solid grey;
+border-radius: 5px;
+animation: flicker 3.5s infinite;
+}
+
+@keyframes flicker {
+0% {
+opacity: 1;
+}
+50% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
+
+
+.message::before{
+content: "You're not having a good day? Let's talk."
+}
+
+
+#playButton{
+  margin: 0 47vw;
+  width: 5%;
+  height: 10%;
+  border-radius: 50%;
+  border-color: #ae4195;
+  background-color: rgb(243, 242, 243);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#playButton img{
+  width: 55%;
+  height: 8%;
+}
+
  
   </style>
 </head>
 
 <body>
-    
+  <div class="message"></div>
     
   <div class="overlay">
     <div class="popup">
@@ -155,9 +227,10 @@ video {
   </div>
  
   <div class="container">
-    <a href="medi.html" id="medi">Meditation</a>   
-   
-     <a href="index.html" id="home" class="active">Home</a>  
+    <a href="about-us.html" id="about-us">About us</a>    
+    <a href="gh.html" id="medi">Bhagavad-Gita</a> 
+    <a href="medi.html" id="medi">Meditation</a> 
+    <a href="index.html" id="home" class="active">Home</a>  
   </div>
   <img src="love.avif" alt="your image description">
   <h2>You are special. You are worthy. You have a kind of magic that can never be imitated. 
@@ -174,9 +247,9 @@ video {
   </h2>
 
 
-  <p>“Be yourself; everyone else is already taken.”
+  <p>“Nothing brings down walls as surely as acceptance.”
     <br>
-    ― Oscar Wilde
+     ― Deepak Chopra
     <br>
     <br>
     “Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.”
@@ -184,9 +257,9 @@ video {
     ― Bernard M. Baruch
     <br>
     <br>
-    “Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.”
+    “You are imperfect, permanently and inevitably flawed. And you are beautiful.”
     <br>
-    ― Marilyn Monroe
+    ― Amy Bloom
     <br>
     <br>
     “To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.”
@@ -204,8 +277,11 @@ video {
   </p>
     <video controls autoplay>
       <source src="हमेशा-उम्मीद-रखिए-_-Shree-krishna-status-_-Bhagwat-geeta-saar-_-Bhagwat-geeta-_-Geeta-Gyan720P_HD.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
-  <button onclick="myVideo.play()">Play</button>
+    <button id="playButton" onclick="myVideo.play()">
+      <img src="play-button.png" alt="Play">
+    </button>
   <script>
     const closeBtn = document.querySelector('.close');
 
@@ -216,7 +292,10 @@ closeBtn.addEventListener('click', () => {
 
 
 
-
+var myVideo = document.getElementsByTagName('video')[0];
+  myVideo.addEventListener('loadeddata', function() {
+    myVideo.play();
+  });
 
     
 
