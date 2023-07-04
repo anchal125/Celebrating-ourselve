@@ -282,46 +282,52 @@ content: "You're not having a good day? Let's talk."
     <button id="playButton" onclick="myVideo.play()">
       <img src="play-button.png" alt="Play">
     </button>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
- function setCookie(name, value, days) {
-  var expires = '';
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    expires = '; expires=' + date.toUTCString();
-  }
-  document.cookie = name + '=' + value + expires + '; path=/';
-}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  
 
-function getCookie(name) {
-  var nameEQ = name + '=';
-  var ca = document.cookie.split(';');
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) === ' ') {
-      c = c.substring(1, c.length);
+  function setCookie(name, value, days) {
+    var expires = '';
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = '; expires=' + date.toUTCString();
     }
-    if (c.indexOf(nameEQ) === 0) {
-      return c.substring(nameEQ.length, c.length);
+    document.cookie = name + '=' + value + expires + '; path=/';
+  }
+
+  function getCookie(name) {
+    var nameEQ = name + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) === 0) {
+        return c.substring(nameEQ.length, c.length);
+      }
     }
+    return null;
   }
-  return null;
-}
 
-$(document).ready(function() {
-  var seenPopup = getCookie('seenPopup');
+  $(document).ready(function() {
+    var seenPopup = getCookie('seenPopup');
 
-  if (seenPopup === null) {
-    $('.overlay').show();
+    if (seenPopup === null) {
+      $('.overlay').show();
 
-    $('.overlay .close').click(function() {
-      $('.overlay').hide();
-    });
+      
 
-    setCookie('seenPopup', 'true', 1);
-  }
+      setCookie('seenPopup', 'true', 1);
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+  // Hide the pop-up
+  document.querySelector('.overlay').style.display = 'none';
 });
+
 
 
 var myVideo = document.getElementsByTagName('video')[0];
