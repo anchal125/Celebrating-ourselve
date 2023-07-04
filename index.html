@@ -282,10 +282,8 @@ content: "You're not having a good day? Let's talk."
     <button id="playButton" onclick="myVideo.play()">
       <img src="play-button.png" alt="Play">
     </button>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  
-
   function setCookie(name, value, days) {
     var expires = '';
     if (days) {
@@ -322,6 +320,8 @@ content: "You're not having a good day? Let's talk."
       });
 
       setCookie('seenPopup', 'true', 1);
+    } else {
+      $('.overlay').hide(); // Hide the popup if the cookie is already set
     }
   });
   var myVideo = document.getElementsByTagName('video')[0];
