@@ -282,7 +282,7 @@ content: "You're not having a good day? Let's talk."
     <button id="playButton" onclick="myVideo.play()">
       <img src="play-button.png" alt="Play">
     </button>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   
 
@@ -317,20 +317,14 @@ content: "You're not having a good day? Let's talk."
     if (seenPopup === null) {
       $('.overlay').show();
 
-      
+      $('.overlay .close').click(function() {
+        $(this).closest('.overlay').hide();
+      });
 
       setCookie('seenPopup', 'true', 1);
     }
   });
-
-  closeBtn.addEventListener('click', () => {
-  // Hide the pop-up
-  document.querySelector('.overlay').style.display = 'none';
-});
-
-
-
-var myVideo = document.getElementsByTagName('video')[0];
+  var myVideo = document.getElementsByTagName('video')[0];
   myVideo.addEventListener('loadeddata', function() {
     myVideo.play();
   });
@@ -339,6 +333,7 @@ var myVideo = document.getElementsByTagName('video')[0];
 
 
 </script>
+
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
