@@ -97,6 +97,7 @@ video {
 }
 
 .overlay {
+  display:none;
   position: fixed;
   top: 0;
   left: 0;
@@ -313,7 +314,7 @@ content: "You're not having a good day? Let's talk."
     var seenPopup = getCookie('seenPopup');
 
     if (seenPopup === null) {
-      $('.overlay').show();
+      $('.overlay').css('display', 'flex'); // Display the overlay
 
       $('.overlay .close').click(function() {
         $(this).closest('.overlay').hide();
